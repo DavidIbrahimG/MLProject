@@ -40,6 +40,9 @@ To prepare the data for training:
 
 ### 4. **Model Training and Evaluation**
 
+<img width="571" height="448" alt="Screenshot 2025-07-20 at 13 23 56" src="https://github.com/user-attachments/assets/2444ea3e-1df5-492e-b571-3269f548a0b5" />
+
+
 Several machine learning models were trained and evaluated using **cross-validation** and metrics like **accuracy**, **precision**, **recall**, and **F1-score**. The models included:
 - **Logistic Regression**
 - **Random Forest**
