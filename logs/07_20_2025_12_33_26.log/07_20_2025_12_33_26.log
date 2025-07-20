@@ -1,0 +1,139 @@
+[ 2025-07-20 12:33:26,413 ] 97 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.0.114:5002
+[ 2025-07-20 12:33:26,414 ] 97 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2025-07-20 12:33:47,864 ] 97 werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 12:33:47] "GET / HTTP/1.1" 200 -
+[ 2025-07-20 12:33:47,908 ] 97 werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 12:33:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2025-07-20 12:34:06,410 ] 97 werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 12:34:06] "[33mGET /home HTTP/1.1[0m" 404 -
+[ 2025-07-20 12:34:14,720 ] 97 werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 12:34:14] "[33mGET /index HTTP/1.1[0m" 404 -
+[ 2025-07-20 12:34:35,555 ] 97 werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 12:34:35] "GET /predictdata HTTP/1.1" 200 -
+[ 2025-07-20 12:34:57,827 ] 875 app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py", line 58, in load_object
+    with open(file_path, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/preprocessor.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py", line 18, in predict
+    preprocessor=load_object(file_path=preprocessor_path)
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py", line 62, in load_object
+    raise CustomException(e, sys)
+src.exception.CustomException: Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py] line number [58] error message[[Errno 2] No such file or directory: 'artifacts/preprocessor.pkl']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/app.py", line 39, in predict_datapoint
+    results=predict_pipeline.predict(pred_df)
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py", line 25, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py] line number [18] error message[Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py] line number [58] error message[[Errno 2] No such file or directory: 'artifacts/preprocessor.pkl']]
+[ 2025-07-20 12:34:57,828 ] 97 werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 12:34:57] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -
+[ 2025-07-20 13:18:33,758 ] 875 app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py", line 58, in load_object
+    with open(file_path, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/preprocessor.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py", line 18, in predict
+    preprocessor=load_object(file_path=preprocessor_path)
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py", line 62, in load_object
+    raise CustomException(e, sys)
+src.exception.CustomException: Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py] line number [58] error message[[Errno 2] No such file or directory: 'artifacts/preprocessor.pkl']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/app.py", line 39, in predict_datapoint
+    print("Mid Prediction")
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py", line 25, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py] line number [18] error message[Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py] line number [58] error message[[Errno 2] No such file or directory: 'artifacts/preprocessor.pkl']]
+[ 2025-07-20 13:18:33,759 ] 97 werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 13:18:33] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -
+[ 2025-07-20 13:18:43,420 ] 875 app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py", line 58, in load_object
+    with open(file_path, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/preprocessor.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py", line 18, in predict
+    preprocessor=load_object(file_path=preprocessor_path)
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py", line 62, in load_object
+    raise CustomException(e, sys)
+src.exception.CustomException: Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py] line number [58] error message[[Errno 2] No such file or directory: 'artifacts/preprocessor.pkl']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/app.py", line 39, in predict_datapoint
+    print("Mid Prediction")
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py", line 25, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py] line number [18] error message[Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py] line number [58] error message[[Errno 2] No such file or directory: 'artifacts/preprocessor.pkl']]
+[ 2025-07-20 13:18:43,421 ] 97 werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 13:18:43] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -
+[ 2025-07-20 13:18:48,544 ] 97 werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 13:18:48] "GET /predictdata HTTP/1.1" 200 -
+[ 2025-07-20 13:19:10,053 ] 875 app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py", line 58, in load_object
+    with open(file_path, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/preprocessor.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py", line 18, in predict
+    preprocessor=load_object(file_path=preprocessor_path)
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py", line 62, in load_object
+    raise CustomException(e, sys)
+src.exception.CustomException: Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py] line number [58] error message[[Errno 2] No such file or directory: 'artifacts/preprocessor.pkl']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/app.py", line 39, in predict_datapoint
+    print("Mid Prediction")
+  File "/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py", line 25, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/pipeline/predict_pipeline.py] line number [18] error message[Error occured in python script name [/Users/davidibrahim/Programming/mlops1/mlproject/src/utils.py] line number [58] error message[[Errno 2] No such file or directory: 'artifacts/preprocessor.pkl']]
+[ 2025-07-20 13:19:10,054 ] 97 werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 13:19:10] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -
